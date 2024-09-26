@@ -1,0 +1,91 @@
+.login-page {
+  background-image: url("/images/parking_bg.jpeg");
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100svh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1c1c1c;
+
+  section {
+    background-color: #9a9a9aba;
+    border-radius: 1vw;
+    padding: 1vw 6vw;
+
+    div {
+      h1 {
+        font-size: 2.5vw;
+        margin-bottom: 0.5vw;
+      }
+
+      p {
+        font-size: 1.2vw;
+      }
+
+      form {
+        fieldset {
+          border: 0px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          input {
+            margin: 1vw;
+            padding: 0.8vw 1vw;
+            width: 20vw;
+            font-size: 1.2vw;
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            border-bottom: solid;
+            border-color: #16423C;
+          }
+
+          input:focus {
+            outline: none;
+          }
+        }
+
+        button {
+          padding: 1vw 4vw;
+          font-size: 1.2vw;
+          border-radius: 0.2vw;
+          margin-bottom: 1vw;
+        }
+
+        .btn-enabled:hover {
+          background-color: #16423C;
+          color: #ffffff;
+        }
+
+        .btn-enabled:active {
+          background-color: #6A9C89;
+        }
+
+        .btn-disabled {
+          cursor: default;
+        }
+
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
+
+        p {
+          color: #ff0000;
+          font-size: 0.8vw;
+          margin-top: -0.5vw;
+          margin-bottom: 1vw;
+        }
+      }
+    }
+  }
+}

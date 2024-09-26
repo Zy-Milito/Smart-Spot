@@ -1,0 +1,15 @@
+<main class="dashboard-container">
+  <section>
+    <nav>
+      <div>
+        <a [routerLink]="['availability']" routerLinkActive="active-link">Availability</a>
+        <a [routerLink]="['reports']" routerLinkActive="active-link">Reports</a>
+        <a [routerLink]="['prices']" routerLinkActive="active-link">Prices</a>
+      </div>
+      <div>
+        <a [routerLink]="['/login']" class="btn-logout"><img src="/images/power.png">LOG OUT</a>
+      </div>
+    </nav>
+    <router-outlet />
+  </section>
+</main>

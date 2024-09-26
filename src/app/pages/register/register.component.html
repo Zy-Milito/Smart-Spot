@@ -1,0 +1,17 @@
+<main class="register-page">
+    <section>
+        <div>
+            <p>Register a new user in Smart Spot manager.</p>
+            <form>
+                <fieldset>
+                    <input type="text" name="username" placeholder="Username" class="input" required>
+                    <input type="email" name="email" placeholder="Email Address" class="input" required>
+                    <input type="password" name="password" placeholder="Password" class="input" required>
+                    <input type="password" name="password" placeholder="Repeat Password" class="input" required>
+                </fieldset>
+                <button [routerLink]="['/login']">Continue</button><br>
+                <a [routerLink]="['/login']">Sign in with an existing account</a>
+            </form>
+        </div>
+    </section>
+</main>

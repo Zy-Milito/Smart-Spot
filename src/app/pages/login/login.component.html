@@ -1,0 +1,21 @@
+<main class="login-page">
+    <section>
+        <div>
+            <h1>Sign In Smart Spot Manager</h1>
+            <p>Please enter your registered account to sign in.</p>
+            <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+                <fieldset>
+                    <input type="text" name="username" placeholder="Username" class="input" required ngModel>
+                    <input type="password" name="password" placeholder="Password" class="input" required ngModel>
+                </fieldset>
+                <button type="submit" (keyup.enter)="login(loginForm)" [disabled]="loginForm.invalid"
+                    [ngClass]="{'btn-disabled': loginForm.invalid,'btn-enabled': loginForm.valid}">Sign
+                    In</button><br>
+                @if (errorLogin) {
+                <p>Some error</p>
+                }
+                <a [routerLink]="['/register']">Add New User</a>
+            </form>
+        </div>
+    </section>
+</main>
