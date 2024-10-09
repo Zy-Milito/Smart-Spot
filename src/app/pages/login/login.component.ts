@@ -16,16 +16,13 @@ export class LoginComponent {
   authService = inject(DataAuthService);
   router = inject(Router)
 
-  loginData: ILogin = {
-    username: 'admin',
-    password: 'admin'
-  }
-
   errorLogin = false;
   async login(loginForm: NgForm) {
     const { username, password } = loginForm.value;
     const loginData: ILogin = { username, password };
+
     const res = await this.authService.login(loginData);
+
     if (res?.status === 'ok') this.router.navigate(['/dashboard']);
     else this.errorLogin = true;
   }

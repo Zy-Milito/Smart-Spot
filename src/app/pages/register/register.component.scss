@@ -52,13 +52,17 @@
             margin-bottom: 1vw;
           }
   
-          button:hover {
+          .btn-enabled:hover {
             background-color: #16423C;
             color: #ffffff;
           }
   
-          button:active {
+          .btn-enabled:active {
             background-color: #6A9C89;
+          }
+  
+          .btn-disabled {
+            cursor: default;
           }
   
           a {
@@ -68,6 +72,13 @@
   
           a:hover {
             text-decoration: underline;
+          }
+  
+          p {
+            color: #ff0000;
+            font-size: 0.8vw;
+            margin-top: -0.5vw;
+            margin-bottom: 1vw;
           }
         }
       }

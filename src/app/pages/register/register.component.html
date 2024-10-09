@@ -2,14 +2,19 @@
     <section>
         <div>
             <p>Register a new user in Smart Spot manager.</p>
-            <form>
+            <form #regForm="ngForm" (ngSubmit)="register(regForm)">
                 <fieldset>
-                    <input type="text" name="username" placeholder="Username" class="input" required>
-                    <input type="email" name="email" placeholder="Email Address" class="input" required>
-                    <input type="password" name="password" placeholder="Password" class="input" required>
-                    <input type="password" name="password" placeholder="Repeat Password" class="input" required>
+                    <input type="text" name="username" placeholder="Username" class="input" required ngModel>
+                    <input type="email" name="email" placeholder="Email Address" class="input" required ngModel>
+                    <input type="password" name="password" placeholder="Password" class="input" required ngModel>
+                    <input type="password" name="password-check" placeholder="Repeat Password" class="input" required
+                        ngModel>
                 </fieldset>
-                <button [routerLink]="['/login']">Continue</button><br>
+                <button type="submit" (keyup.enter)="register(regForm)" [disabled]="regForm.invalid"
+                    [ngClass]="{'btn-disabled': regForm.invalid, 'btn-enabled': regForm.valid}">Continue</button><br>
+                @if (errorReg) {
+                <p>Some error</p>
+                }
                 <a [routerLink]="['/login']">Sign in with an existing account</a>
             </form>
         </div>

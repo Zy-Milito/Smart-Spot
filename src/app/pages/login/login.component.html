@@ -9,7 +9,7 @@
                     <input type="password" name="password" placeholder="Password" class="input" required ngModel>
                 </fieldset>
                 <button type="submit" (keyup.enter)="login(loginForm)" [disabled]="loginForm.invalid"
-                    [ngClass]="{'btn-disabled': loginForm.invalid,'btn-enabled': loginForm.valid}">Sign
+                    [ngClass]="{'btn-disabled': loginForm.invalid, 'btn-enabled': loginForm.valid}">Sign
                     In</button><br>
                 @if (errorLogin) {
                 <p>Some error</p>
