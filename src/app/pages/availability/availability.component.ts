@@ -6,7 +6,6 @@ import { DashboardComponent } from '../../components/dashboard/dashboard.compone
 import { AvailabilityService } from '../../services/availability.service';
 import Swal from 'sweetalert2';
 import { ParkingFeeService } from '../../services/parking-fee.service';
-import { retry } from 'rxjs';
 
 @Component({
   selector: 'app-availability',
