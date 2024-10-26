@@ -7,7 +7,7 @@
         <a [routerLink]="['prices']" routerLinkActive="active-link">Prices</a>
       </div>
       <div>
-        <a [routerLink]="['/login']" class="btn-logout"><img src="/images/power.png">LOG OUT</a>
+        <button (click)="logout()" class="btn-logout"><img src="/images/power.png">LOG OUT</button>
       </div>
     </nav>
     <router-outlet />

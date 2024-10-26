@@ -7,7 +7,7 @@ export const adminGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
 
   if (dataAuthService.user?.admin) return true;
-  const url = router.parseUrl("/availability");
+  const url = router.parseUrl('/availability');
 
   return new RedirectCommand(url);
 };

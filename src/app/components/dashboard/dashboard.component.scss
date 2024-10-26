@@ -27,7 +27,7 @@
       margin: 1vw 0 1vw;
 
       div {
-        a {
+        a, button {
           text-decoration: none;
           margin: 1vw;
           color: #1c1c1c;
@@ -39,6 +39,21 @@
         a:hover {
           background-color: #5d5d5dd0;
           border-color: #5d5d5dd0;
+        }
+
+        a:active {
+          background-color: #747474d0;
+          border-color: #747474d0;
+        }
+
+        button:hover {
+          background-color: #5d5d5dd0;
+          border-color: #5d5d5dd0;
+        }
+
+        button:active {
+          background-color: #747474d0;
+          border-color: #747474d0;
         }
 
         .active-link {

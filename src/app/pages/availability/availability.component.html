@@ -1,40 +1,48 @@
 <div>
-    <table>
-        <thead>
-            <td>Number</td>
-            <td>Availability</td>
-            <td>Access</td>
-            <td>Actions</td>
-        </thead>
-        <tbody>
-            @for (parkingSpot of parkingSpots; track $index) {
-            <tr>
-                <td>{{parkingSpot.number}}</td>
-                <td [ngClass]="{'available': parkingSpot.availability,'unavailable': !parkingSpot.availability}">
-                    {{parkingSpot.availability ? "Available" :
-                    "Unavailable"}}</td>
-                <td>{{parkingSpot.access}}</td>
-                <td>
-                    @if(parkingSpot.availability) {
-                    <img (click)="disableBooth($index)" src="/vectors/cross.svg" alt="Disable parkingSpot button.">
-                    } @else {
-                    <img (click)="enableBooth($index)" src="/vectors/checkbox.svg" alt="Enable parkingSpot button.">
-                    }
-                    @if (admin) {
-                    <img (click)="removeRow($index)" src="/vectors/minus.svg" alt="Remove parkingSpot button.">
-                    }
-                </td>
-            </tr>
-            } @empty {
-            <div class="empty-data">
-                <img src="/images/folder.png" alt="No data found image.">
-                <p>No booths registered.</p>
-            </div>
-            }
-        </tbody>
-    </table>
+  <table>
+    <thead>
+      <td>Number</td>
+      <td>Availability</td>
+      <td>Access</td>
+      <td>Actions</td>
+    </thead>
+    <tbody>
+      @for (parkingSpot of availabilityService.parkingSpots; track $index) {
+      <tr>
+        <td>{{parkingSpot.number}}</td>
+        <td>
+          @if (parkingSpot.availability) {
+          <button class="unavailable">Unavailable</button>
+          } @else if (!parkingSpot.sale?.departureTime && parkingSpot.sale?.entranceTime) {
+          <button (click)="closeSale(parkingSpot)">{{ parkingSpot.sale?.plate }}</button>
+          } @else {
+          <button (click)="openSale(parkingSpot.id)" class="available">Available</button>
+          }
+        </td>
+        <td>{{parkingSpot.access}}</td>
+        <td>
+          @if(!parkingSpot.sale?.plate) {
+          @if(!parkingSpot.availability) {
+          <img (click)="disableBooth(parkingSpot.id)" src="/vectors/cross.svg" alt="Disable parking spot.">
+          } @else {
+          <img (click)="enableBooth(parkingSpot.id)" src="/vectors/checkbox.svg" alt="Enable parking spot.">
+          }
+          }
+          @if (admin) {
+          <img (click)="removeRow(parkingSpot.id)" src="/vectors/minus.svg" alt="Remove parking spot.">
+          }
+        </td>
+      </tr>
+      } @empty {
+      <div class="empty-data">
+        <img src="/images/folder.png" alt="No data found image.">
+        <p>No booths registered.</p>
+      </div>
+      }
+    </tbody>
+  </table>
 
-    @if (admin) {
-    <img (click)="addBooth()" class="add-parkingSpot" src="/vectors/plus.svg" alt="Add new parkingSpot button.">
-    }
+  @if (admin) {
+  <img (click)="addBooth()" class="add-parkingSpot" src="/vectors/plus.svg" alt="Create new parking spot.">
+  }
 </div>

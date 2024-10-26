@@ -10,11 +10,11 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [RouterModule, FormsModule, CommonModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
 })
 export class LoginComponent {
   authService = inject(DataAuthService);
-  router = inject(Router)
+  router = inject(Router);
 
   errorLogin = false;
   async login(loginForm: NgForm) {
@@ -23,7 +23,7 @@ export class LoginComponent {
 
     const res = await this.authService.login(loginData);
 
-    if (res?.status === 'ok') this.router.navigate(['/dashboard']);
+    if (res?.statusText === 'OK') this.router.navigate(['/dashboard']);
     else this.errorLogin = true;
   }
 }
