@@ -16,7 +16,6 @@ import { ParkingFeeService } from '../../services/parking-fee.service';
 })
 export class AvailabilityComponent {
   admin = true;
-  parkingSpots: IParkingSpot[] = [];
   availabilityService = inject(AvailabilityService);
   parkingFeeService = inject(ParkingFeeService);
 
