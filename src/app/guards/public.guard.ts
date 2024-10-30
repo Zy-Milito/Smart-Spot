@@ -6,7 +6,7 @@ export const publicGuard: CanActivateFn = (route, state) => {
   const dataAuthService = inject(DataAuthService);
   const router = inject(Router);
 
-  if (!dataAuthService.user) return true;
+  if (!dataAuthService.user?.token) return true;
   const url = router.parseUrl('/dashboard');
 
   return new RedirectCommand(url);

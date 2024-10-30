@@ -3,7 +3,11 @@
     <nav>
       <div>
         <a [routerLink]="['availability']" routerLinkActive="active-link">Availability</a>
+        @if (admin) {
         <a [routerLink]="['reports']" routerLinkActive="active-link">Reports</a>
+        } @else {
+        <a routerLinkActive="active-link" class="disabled">Reports</a>
+        }
         <a [routerLink]="['prices']" routerLinkActive="active-link">Prices</a>
       </div>
       <div>

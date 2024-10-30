@@ -12,6 +12,7 @@ import { DataAuthService } from '../../services/data-auth.service';
 export class DashboardComponent {
   authService = inject(DataAuthService);
   router = inject(Router);
+  admin = this.authService.user?.admin;
 
   logout() {
     this.authService.clearToken();

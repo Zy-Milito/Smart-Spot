@@ -15,10 +15,10 @@ All vectors used were taken from https://www.freepik.com.
 
 (solved) Issue #4: Admin guard returns false despite being logged in with an admin account.
 
-Issue #5: Logging in with standard accounts returns 401 Unauthorized.
+(solved) Issue #5: Logging in with standard accounts returns 401 Unauthorized.
 
-Issue #6: Logging out won't redirect to login.
+(solved) Issue #6: Logging out won't redirect to login.
 
 (solved) Issue #7: Updating a parking rate value returns error 500 (authorization error).
 
-Issue #8: Parking spots with at least one completed sale are not properly displayed and user is unable to close new orders, leaving the parking spot on "available" all the time (frontend-wise).
+(solved) Issue #8: Parking spots with at least one completed sale are not properly displayed and user is unable to close new orders, leaving the parking spot on "available" all the time (frontend-wise).

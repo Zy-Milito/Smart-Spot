@@ -23,7 +23,7 @@ export class AvailabilityService {
   }
 
   async getParkingSpots() {
-    const res = await fetch('http://localhost:4000/cocheras', {
+    const res = await fetch(environment.API_URL + 'cocheras', {
       headers: {
         authorization: 'Bearer ' + localStorage.getItem('authToken'),
       },
@@ -34,7 +34,7 @@ export class AvailabilityService {
   }
 
   async getSales() {
-    const res = await fetch('http://localhost:4000/estacionamientos', {
+    const res = await fetch(environment.API_URL + 'estacionamientos', {
       headers: {
         authorization: 'Bearer ' + localStorage.getItem('authToken'),
       },
@@ -46,7 +46,7 @@ export class AvailabilityService {
 
   linkSalesWithParkingSpots() {
     this.parkingSpots = this.parkingSpots.map((parkingSpot) => {
-      const sale = this.sales.find((s) => s.parkingSpotId === parkingSpot.id);
+      const sale = this.sales.find((s) => s.parkingSpotId === parkingSpot.id && !s.departureTime);
       return { ...parkingSpot, sale };
     });
   }

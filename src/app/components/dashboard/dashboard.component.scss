@@ -46,6 +46,16 @@
           border-color: #747474d0;
         }
 
+        .disabled {
+          color: #555555;
+        }
+
+        .disabled:hover {
+          background-color: initial;
+          border-color: initial;
+          cursor: default;
+        }
+
         button:hover {
           background-color: #5d5d5dd0;
           border-color: #5d5d5dd0;

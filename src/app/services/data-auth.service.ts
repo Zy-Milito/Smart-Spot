@@ -3,19 +3,26 @@ import { IUser } from '../interfaces/user';
 import { ILogin, IResLogin } from '../interfaces/login';
 import { IRegister } from '../interfaces/register';
 import { environment } from '../../environments/environment';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataAuthService {
   constructor() {
+    const helper = new JwtHelperService();
     const token = this.getToken();
+
+    if (!token) return;
+
+    const decodedToken = helper.decodeToken(token);
+
     if (token) {
       if (!this.user)
         this.user = {
-          username: '',
+          username: decodedToken.username,
           token: token,
-          admin: false,
+          admin: decodedToken.admin ? true : false,
         };
       else this.user!.token = token;
     }
@@ -48,7 +55,7 @@ export class DataAuthService {
 
     const userDetailsRes = await fetch(
       environment.API_URL +
-        `usuarios/${encodeURIComponent(loginData.username)}`,
+      `usuarios/${encodeURIComponent(loginData.username)}`,
       {
         method: 'GET',
         headers: {
@@ -86,5 +93,10 @@ export class DataAuthService {
 
   clearToken() {
     localStorage.removeItem('authToken');
+    this.user = {
+      username: '',
+      token: '',
+      admin: false
+    }
   }
 }
