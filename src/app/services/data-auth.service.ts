@@ -52,7 +52,7 @@ export class DataAuthService {
       {
         method: 'GET',
         headers: {
-          Authorization: `Bearer ${resJson.token}`,
+          'Authorization': `Bearer ${resJson.token}`,
           'Content-Type': 'application/json',
         },
       }

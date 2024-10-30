@@ -20,15 +20,25 @@ div {
       .available {
         background-color: rgb(120, 221, 120);
         padding: 0.6vw 1vw;
-        border-radius: 1.5vw;
+        border-radius: 0.5vw;
         font-size: 1vw;
+        cursor: pointer;
       }
 
       .unavailable {
+        background-color: rgba(180, 180, 180, 0.842);
+        padding: 0.6vw 1vw;
+        border-radius: 0.5vw;
+        font-size: 1vw;
+        cursor: default;
+      }
+
+      .occupied {
         background-color: rgb(200, 110, 110);
         padding: 0.6vw 1vw;
-        border-radius: 1.5vw;
+        border-radius: 0.5vw;
         font-size: 1vw;
+        cursor: pointer;
       }
     }
 

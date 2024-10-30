@@ -18,7 +18,7 @@ export class SaleService {
       !this.availabilityService.sales ||
       this.availabilityService.sales.length === 0
     ) {
-      console.error('There are no parking spots available.');
+      console.error('There are no sales.');
     }
 
     const filteredSales = this.availabilityService.sales.filter(

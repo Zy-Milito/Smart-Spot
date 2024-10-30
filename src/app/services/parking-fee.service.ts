@@ -26,4 +26,22 @@ export class ParkingFeeService {
       this.fees = await res.json();
     }
   }
+
+  async updateFee(id: string, value: number) {
+    const data = { id, value };
+    const res = await fetch(environment.API_URL + 'tarifas/' + id, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: 'Bearer ' + localStorage.getItem('authToken'),
+      },
+      body: JSON.stringify(data),
+    });
+    if (res.status === 200) {
+      console.log('Parking rate modified successfully.');
+      this.getFees();
+    } else {
+      console.warn('Error! Unable to update the parking rate.');
+    }
+  }
 }

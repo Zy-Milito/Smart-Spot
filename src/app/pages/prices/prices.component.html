@@ -1,0 +1,24 @@
+<div>
+  <table>
+    <thead>
+      <td>Description</td>
+      <td>Cost</td>
+      @if (admin) {
+      <td>Modify</td>
+      }
+    </thead>
+    <tbody>
+      @for (fee of parkingFeeService.fees; track $index) {
+      <tr>
+        <td>{{fee.description}}</td>
+        <td>${{fee.value}}</td>
+        @if (admin) {
+        <td>
+          <img (click)="updateValue(fee.id)" src="/vectors/edit.svg" alt="Change rate value.">
+        </td>
+        }
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

@@ -142,8 +142,8 @@ export class AvailabilityService {
     }
   }
 
-  async closeSale(plate: string, entranceUserId: string) {
-    const body = { plate, entranceUserId };
+  async closeSale(plate: string, departureUserId: string) {
+    const body = { plate, departureUserId };
     const res = await fetch(environment.API_URL + 'estacionamientos/cerrar', {
       method: 'PATCH',
       headers: {

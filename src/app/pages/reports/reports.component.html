@@ -1,1 +1,41 @@
-
+<div>
+  <table>
+    <thead>
+      <td>Spot</td>
+      <td>Plate</td>
+      <td>Date</td>
+      <td>Charged</td>
+    </thead>
+    <tbody>
+      @for (sale of this.saleService.lastSales; track $index) {
+      <tr>
+        <td>
+          {{ sale.parkingSpotId }}
+        </td>
+        <td>
+          {{ sale.plate }}
+        </td>
+        <td>
+          @if (sale.entranceTime) {
+          {{ sale.departureTime | date:'mm/dd/yyyy' }}
+          } @else {
+          -
+          }
+        </td>
+        <td>
+          @if (sale.cost) {
+          {{ sale.cost | currency }}
+          } @else {
+          -
+          }
+        </td>
+      </tr>
+      } @empty {
+      <div class="empty-data">
+        <img src="/images/folder.png" alt="No data found image.">
+        <p>No sales registered.</p>
+      </div>
+      }
+    </tbody>
+  </table>
+</div>

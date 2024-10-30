@@ -6,6 +6,7 @@ import { DashboardComponent } from '../../components/dashboard/dashboard.compone
 import { AvailabilityService } from '../../services/availability.service';
 import Swal from 'sweetalert2';
 import { ParkingFeeService } from '../../services/parking-fee.service';
+import { DataAuthService } from '../../services/data-auth.service';
 
 @Component({
   selector: 'app-availability',
@@ -15,9 +16,10 @@ import { ParkingFeeService } from '../../services/parking-fee.service';
   styleUrl: './availability.component.scss',
 })
 export class AvailabilityComponent {
-  admin = true;
+  authService = inject(DataAuthService);
   availabilityService = inject(AvailabilityService);
   parkingFeeService = inject(ParkingFeeService);
+  admin = this.authService.user?.admin;
 
   addBooth() {
     Swal.fire({
@@ -37,7 +39,16 @@ export class AvailabilityComponent {
   }
 
   removeRow(parkingSpotId: number) {
-    this.availabilityService.removeRow(parkingSpotId);
+    Swal.fire({
+      title: 'Do you wish to remove this parking spot?',
+      showCancelButton: true,
+      confirmButtonText: 'Confirm',
+      denyButtonText: 'Cancel',
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        await this.availabilityService.removeRow(parkingSpotId);
+      }
+    });
   }
 
   disableBooth(parkingSpotId: number) {

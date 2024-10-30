@@ -13,15 +13,21 @@
         <td>
           @if (parkingSpot.availability) {
           <button class="unavailable">Unavailable</button>
-          } @else if (!parkingSpot.sale?.departureTime && parkingSpot.sale?.entranceTime) {
-          <button (click)="closeSale(parkingSpot)">{{ parkingSpot.sale?.plate }}</button>
+          } @else if (parkingSpot.sale?.parked == 1) {
+          <button (click)="closeSale(parkingSpot)" class="occupied">{{ parkingSpot.sale?.plate }}</button>
           } @else {
           <button (click)="openSale(parkingSpot.id)" class="available">Available</button>
           }
         </td>
-        <td>{{parkingSpot.access}}</td>
         <td>
-          @if(!parkingSpot.sale?.plate) {
+          @if (parkingSpot.sale?.parked == 1) {
+          {{parkingSpot.sale?.entranceTime}}
+          } @else {
+          -
+          }
+        </td>
+        <td>
+          @if(!parkingSpot.sale?.plate || parkingSpot.sale?.parked == 0) {
           @if(!parkingSpot.availability) {
           <img (click)="disableBooth(parkingSpot.id)" src="/vectors/cross.svg" alt="Disable parking spot.">
           } @else {

@@ -1,0 +1,50 @@
+div {
+  width: 100%;
+  height: 70vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+
+  table {
+    margin: auto;
+    font-size: 1.2vw;
+    width: 100%;
+
+    thead,
+    tr {
+      display: grid;
+      grid-template-columns: 50% 40% 10%;
+      justify-items: center;
+      align-items: center;
+      padding: 1vw 2vw;
+    }
+
+    thead {
+      background-color: #6a9c8980;
+      border-top-right-radius: 0.5vw;
+      border-top-left-radius: 0.5vw;
+    }
+
+    tr {
+      background-color: #e9efec81;
+    }
+
+    tr:last-child {
+      border-bottom-right-radius: 0.5vw;
+      border-bottom-left-radius: 0.5vw;
+    }
+
+    tr:nth-child(even) {
+      background-color: #c4dad281;
+    }
+
+    img {
+      margin: 0 0.2vw;
+      cursor: pointer;
+      width: 2.0vw;
+    }
+
+    img:hover {
+      transform: scaleX(-1);
+    }
+  }
+}

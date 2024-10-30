@@ -3,9 +3,10 @@ export interface ISale {
     plate: string,
     entranceTime: string,
     departureTime: string,
-    price: number,
+    cost: number,
     entranceUserId: string,
     departureUserId: string,
     parkingSpotId: number,
-    status: boolean | null
+    status: boolean | null,
+    parked: number
 }
