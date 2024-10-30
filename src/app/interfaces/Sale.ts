@@ -8,5 +8,6 @@ export interface ISale {
     departureUserId: string,
     parkingSpotId: number,
     status: boolean | null,
-    parked: number
+    parked: number,
+    parkingSpotNumber: string
 }

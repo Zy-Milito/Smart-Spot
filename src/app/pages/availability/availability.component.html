@@ -16,7 +16,7 @@
           } @else if (parkingSpot.sale?.parked == 1) {
           <button (click)="closeSale(parkingSpot)" class="occupied">{{ parkingSpot.sale?.plate }}</button>
           } @else {
-          <button (click)="openSale(parkingSpot.id)" class="available">Available</button>
+          <button (click)="openSale(parkingSpot.id, parkingSpot.number)" class="available">Available</button>
           }
         </td>
         <td>

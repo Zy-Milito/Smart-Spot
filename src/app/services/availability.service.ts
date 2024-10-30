@@ -124,8 +124,8 @@ export class AvailabilityService {
     }
   }
 
-  async openSale(plate: string, entranceUserId: string, parkingSpotId: number) {
-    const body = { plate, entranceUserId, parkingSpotId };
+  async openSale(plate: string, entranceUserId: string, parkingSpotId: number, parkingSpotNumber: string) {
+    const body = { plate, entranceUserId, parkingSpotId, parkingSpotNumber };
     const res = await fetch(environment.API_URL + 'estacionamientos/abrir', {
       method: 'POST',
       headers: {

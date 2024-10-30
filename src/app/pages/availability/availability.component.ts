@@ -59,7 +59,7 @@ export class AvailabilityComponent {
     this.availabilityService.enableBooth(parkingSpotId);
   }
 
-  openSale(parkingSpotId: number) {
+  openSale(parkingSpotId: number, parkingSpotNumber: string) {
     const entranceUserId = 'ADMIN';
     Swal.fire({
       title: 'Park Vehicle',
@@ -81,7 +81,8 @@ export class AvailabilityComponent {
         await this.availabilityService.openSale(
           plate,
           entranceUserId,
-          parkingSpotId
+          parkingSpotId,
+          parkingSpotNumber
         );
       }
     });
