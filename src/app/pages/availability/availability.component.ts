@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { IParkingSpot } from '../../interfaces/parkingSpot';
 import { CommonModule } from '@angular/common';
-import { DashboardComponent } from '../../components/dashboard/dashboard.component';
 import { AvailabilityService } from '../../services/availability.service';
 import Swal from 'sweetalert2';
 import { ParkingFeeService } from '../../services/parking-fee.service';
@@ -11,7 +10,7 @@ import { DataAuthService } from '../../services/data-auth.service';
 @Component({
   selector: 'app-availability',
   standalone: true,
-  imports: [RouterModule, CommonModule, DashboardComponent],
+  imports: [RouterModule, CommonModule],
   templateUrl: './availability.component.html',
   styleUrl: './availability.component.scss',
 })

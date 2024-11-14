@@ -7,6 +7,7 @@ Both the frontend and the backend are being developed simultaneously, with the f
 All vectors used were taken from https://www.freepik.com.
 
 ## Bugs
+
 (solved) Issue #1: Availability tab will not update data from occupied parking spots. parkingSpot.availability cannot be evaluated as the property seems to be null. Leads to issue #2.
 
 (solved) Issue #2: Disabling a parking spot will disable it on the backend but the changes won't be reflected on the front end as table data and buttons won't be updated. Leads to issue #3.
